@@ -1,4 +1,5 @@
 import os
+import logging
 
 
 def create_directories(project):
@@ -24,14 +25,14 @@ def create_file(project, url):
 	if not os.path.isfile(crawler):
 		make_file(crawler, " ")
 	
-def make_file(file_name, data):
+def make_file(filename, data):
 	"""This function creates a file and writes data to it
 
 	Args:
 		file_name (string): name of file
 		data (string): contents of file we want to write
 	"""
-	f = open(file_name, "w")
+	f = open(filename, "w")
 	f.write(data)
 	f.close()
 
@@ -47,15 +48,14 @@ def append_to_file(path, data):
 
 	file.close()
 
-def clear_file_info(path):
+def clear_file_info(filename):
 	"""This function clears the contents of a file
 
 	Args:
 		path (string): file we want to clear
 	"""
-	with open(path, "w") as file: 
-		pass
-	file.close()
+	f = open(filename, "w")
+	f.close()
 
 def unique_items_in_file(filename):
 	"""searches through file and adds every link to a set
@@ -73,7 +73,7 @@ def unique_items_in_file(filename):
 	file.close()
 	return unique
 
-def set_to_file(filename, data_links):
+def set_to_file(data_links, filename):
 	"""clears our file & then adds every unique link to our file
 
 	Args:
