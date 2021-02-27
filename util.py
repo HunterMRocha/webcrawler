@@ -10,7 +10,6 @@ def create_directories(project):
 	if not os.path.isdir(project): 
 		os.mkdir(project)
 
-
 def create_file(project, url):
 	"""This function creates queue and crawled files if they are not created already
 
@@ -25,7 +24,6 @@ def create_file(project, url):
 	if not os.path.isfile(crawler):
 		make_file(crawler, " ")
 	
-
 def make_file(file_name, data):
 	"""This function creates a file and writes data to it
 
@@ -75,7 +73,7 @@ def unique_items_in_file(filename):
 	file.close()
 	return unique
 
-def set_items_to_file(filename, data_links):
+def set_to_file(filename, data_links):
 	"""clears our file & then adds every unique link to our file
 
 	Args:
@@ -86,8 +84,6 @@ def set_items_to_file(filename, data_links):
 
 	for link in sorted(data_links): 
 		append_to_file(filename, link)
-
-
 
 
 
