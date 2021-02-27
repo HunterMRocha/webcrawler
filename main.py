@@ -2,6 +2,11 @@ import os
 
 
 def create_directories(project):
+	"""Creates a folder in directory for every website/project
+
+	Args:
+		project (string): Name of directory to create
+	"""
 	if not os.path.isdir(project): 
 		os.mkdir(project)
 
@@ -53,6 +58,38 @@ def clear_file_info(path):
 	with open(path, "w") as file: 
 		pass
 	file.close()
+
+def unique_items_in_file(filename):
+	"""searches through file and adds every link to a set
+
+	Args:
+		filename (file): file we are going to be searching through
+
+	Returns:
+		set: set of all unique links 
+	"""
+	unique = set(filename)
+	with open(filename, "rt") as file: 
+		for line in file: 
+			unique.add(line.replace("\n", ""))
+	file.close()
+	return unique
+
+def set_items_to_file(filename, data_links):
+	"""clears our file & then adds every unique link to our file
+
+	Args:
+		filename (file): file we are going to be clearing/writing to 
+		data_links (set): updated links that we are going to be adding to our file
+	"""
+	clear_file_info(filename)
+
+	for link in sorted(data_links): 
+		append_to_file(filename, link)
+
+
+
+
 
 create_directories("tests")
 create_file("tests", "huntermacias.net")
