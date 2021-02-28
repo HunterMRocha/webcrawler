@@ -72,5 +72,6 @@ class Spider:
 		
 	@staticmethod
 	def update_files():
+		print("updating files")
 		set_to_file(Spider.queue, Spider.queue_file)
 		set_to_file(Spider.crawled, Spider.crawled_file)

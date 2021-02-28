@@ -10,6 +10,7 @@ def create_directories(project):
 	"""
 	if not os.path.isdir(project): 
 		os.mkdir(project)
+	
 
 def create_file(project, url):
 	"""This function creates queue and crawled files if they are not created already
@@ -37,6 +38,7 @@ def make_file(filename, data):
 	f.close()
 
 def append_to_file(path, data):
+	print('appending to file')
 	"""This function appends data to a file
 
 	Args:
@@ -84,8 +86,3 @@ def set_to_file(data_links, filename):
 
 	for link in sorted(data_links): 
 		append_to_file(filename, link)
-
-
-
-create_directories("tests")
-create_file("tests", "huntermacias.net")
